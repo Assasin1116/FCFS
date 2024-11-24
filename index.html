@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FCFS Scheduler</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Simulador de Algoritmo FCFS</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Explicación</h2>
+            <p>
+                FCFS (First Come, First Serve) es un algoritmo de planificación no preventivo. Los procesos se ejecutan
+                en el orden en que llegan al sistema, y un proceso no libera el CPU hasta que se completa.
+            </p>
+        </section>
+        <section class="form-container">
+            <h2>Agregar Procesos</h2>
+            <form id="process-form">
+                <label for="arrival-time">Tiempo de Llegada</label>
+                <input type="number" id="arrival-time" min="0" required>
+                <label for="burst-time">Duración (Burst Time)</label>
+                <input type="number" id="burst-time" min="1" required>
+                <button type="button" onclick="addProcess()">Agregar Proceso</button>
+            </form>
+        </section>
+        <section>
+            <h2>Procesos</h2>
+            <table id="process-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Tiempo de Llegada</th>
+                        <th>Duración</th>
+                        <th>Tiempo de Comienzo</th>
+                        <th>Tiempo de Finalización</th>
+                        <th>Tiempo de Espera</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </section>
+        <section>
+            <h2>Línea de Tiempo</h2>
+            <div class="timeline" id="timeline"></div>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
