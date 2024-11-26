@@ -18,14 +18,14 @@ function añadir() {
 }
 
 function carcular() {
-    let currentTime = 0;
+    let tiempo_actual = 0;
     let tableBody = document.querySelector("#tabla tbody");
     tableBody.innerHTML = ""; 
     let linea_tiempo = document.getElementById("linea_tiempo");
     linea_tiempo.innerHTML = ""; 
 
     lista.forEach(proceso => {
-        const comenzar = Math.max(currentTime, proceso.llegada);
+        const comenzar = Math.max(tiempo_actual, proceso.llegada);
         const terminar = comenzar + proceso.duracion;
         const espera = comenzar - proceso.llegada;
 
@@ -45,6 +45,6 @@ function carcular() {
         procesoBlock.innerText = `P${proceso.id}`;
         linea_tiempo.appendChild(procesoBlock);
 
-        currentTime = terminar;
+        tiempo_actual = terminar;
     });
 }
