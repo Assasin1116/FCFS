@@ -70,7 +70,7 @@ th {
     color: white;
 }
 
-.timeline {
+.linea_tiempo{
     display: flex;
     justify-content: space-between;
     margin: 20px 0;
@@ -80,7 +80,7 @@ th {
     position: relative;
 }
 
-.timeline .process {
+.linea_tiempo.process {
     text-align: center;
     padding: 5px;
     border: 1px solid #0078d7;
