@@ -14,36 +14,36 @@ function añadir() {
     lista.sort((a, b) => a.llegada - b.llegada); 
 
     document.getElementById("formulario").reset();
-    calculateFCFS();
+    carcular();
 }
 
-function calculateFCFS() {
+function carcular() {
     let currentTime = 0;
     let tableBody = document.querySelector("#tabla tbody");
     tableBody.innerHTML = ""; 
     let linea_tiempo = document.getElementById("linea_tiempo");
     linea_tiempo.innerHTML = ""; 
 
-    lista.forEach(process => {
-        const comenzar = Math.max(currentTime, process.llegada);
-        const terminar = comenzar + process.duracion;
-        const espera = comenzar - process.llegada;
+    lista.forEach(proceso => {
+        const comenzar = Math.max(currentTime, proceso.llegada);
+        const terminar = comenzar + proceso.duracion;
+        const espera = comenzar - proceso.llegada;
 
         const row = `<tr>
-            <td>${process.id}</td>
-            <td>${process.llegada}</td>
-            <td>${process.duracion}</td>
+            <td>${proceso.id}</td>
+            <td>${proceso.llegada}</td>
+            <td>${proceso.duracion}</td>
             <td>${comenzar}</td>
             <td>${terminar}</td>
             <td>${espera}</td>
         </tr>`;
         tableBody.innerHTML += row;
 
-        const processBlock = document.createElement("div");
-        processBlock.className = "process";
-        processBlock.style.width = `${process.duracion * 30}px`; 
-        processBlock.innerText = `P${process.id}`;
-        linea_tiempo.appendChild(processBlock);
+        const procesoBlock = document.createElement("div");
+        procesoBlock.className = "proceso";
+        procesoBlock.style.width = `${proceso.duracion * 30}px`; 
+        procesoBlock.innerText = `P${proceso.id}`;
+        linea_tiempo.appendChild(procesoBlock);
 
         currentTime = terminar;
     });
