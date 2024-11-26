@@ -1,5 +1,5 @@
-let processes = [];
-let processId = 1;
+let lista = [];
+let Id = 1;
 
 function añadir() {
     const llegada = parseInt(document.getElementById("tiempo_llegada").value);
@@ -10,8 +10,8 @@ function añadir() {
         return;
     }
 
-    processes.push({ id: processId++, llegada, duracion });
-    processes.sort((a, b) => a.llegada - b.llegada); 
+    lista.push({ id: Id++, llegada, duracion });
+    lista.sort((a, b) => a.llegada - b.llegada); 
 
     document.getElementById("formulario").reset();
     calculateFCFS();
@@ -24,7 +24,7 @@ function calculateFCFS() {
     let linea_tiempo = document.getElementById("linea_tiempo");
     linea_tiempo.innerHTML = ""; 
 
-    processes.forEach(process => {
+    lista.forEach(process => {
         const comenzar = Math.max(currentTime, process.llegada);
         const terminar = comenzar + process.duracion;
         const espera = comenzar - process.llegada;
@@ -39,7 +39,6 @@ function calculateFCFS() {
         </tr>`;
         tableBody.innerHTML += row;
 
-        // Agregar a la línea de tiempo
         const processBlock = document.createElement("div");
         processBlock.className = "process";
         processBlock.style.width = `${process.duracion * 30}px`; 
